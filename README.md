@@ -1,2 +1,2 @@
 # avontuur
-An browser based adventure
+A browser-based adventure, written in PHP/MySQL
