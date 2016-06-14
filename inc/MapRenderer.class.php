@@ -27,6 +27,9 @@ class MapRenderer {
         $minimap = '';
 
         // todo: create minimap html
+        for ($x=0; $x<17; $x++) {
+            $minimap .= '<div class="cell" id="' . $x. ',0">' . $x . '</div>';
+        }
 
         return '<div class="minimap">' . $minimap . '</div>';
     }

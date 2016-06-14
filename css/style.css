@@ -1,0 +1,35 @@
+body {
+    background-color: white;
+    color: black;
+    font-family: arial;
+}
+
+div.sidebar {
+    height: 600px;
+    width: 180px;
+    padding: 10px;
+    border: 1px solid silver;
+    background-color: rgba(192,192,192,0.5);
+}
+
+div.minimap {
+    box-sizing: border-box;   /* box + border together is the size */
+    border: 1px solid black;
+    height: 180px;
+    width: 180px;
+}
+
+div.minimap div.row {
+    box-sizing: border-box;   /* box + border together is the size */
+    border: 1px solid red;
+    width: 178px;
+    height: 10px;
+}
+
+div.minimap div.row div.cell {
+    box-sizing: border-box; /* box + border together is the size */
+    width: 5px;
+    height: 5px;
+    border: 1px solid green;
+    float: left;
+}
