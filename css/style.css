@@ -10,6 +10,15 @@ div.sidebar {
     padding: 10px;
     border: 1px solid silver;
     background-color: rgba(192,192,192,0.5);
+    float: left;
+}
+
+div.content {
+    height: 600px;
+    width: 800px;
+    padding: 10px;
+    border: 1px solid silver;
+    float: left;
 }
 
 div.minimap {
@@ -28,8 +37,14 @@ div.minimap div.row {
 
 div.minimap div.row div.cell {
     box-sizing: border-box; /* box + border together is the size */
-    width: 5px;
-    height: 5px;
+    width: 9px;
+    height: 9px;
     border: 1px solid green;
     float: left;
+}
+
+img.location_image {
+    width: 200px;
+    float: left;
+    margin-right:10px;
 }
