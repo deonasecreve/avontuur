@@ -24,26 +24,18 @@ class Location {
     function LoadFromDb($mysqli, $x, $y) {
 
         $sql = "SELECT * FROM locations WHERE x=" . $x . " AND y=" . $y . ";";
-        $res = $mysqli->query($sql);
-    
-        $statement->execute();
+        $results = $mysqli->query($sql);
 
-        //bind result variables
-        $statement->bind_result($id, $x, $y, $title, $image, $description, $mod_health);
-
-        // hopefully we found exactly 1 row
-        if ($statement->num_rows <> 1 ) return false;
-
-        while ($statement->fetch()) {
-            $this->id = $id;
-            $this->title = $title;
-            $this->image_url = $image;
-            $this->description = $description;
+        if ( $results->num_rows == 1) {
+            $record = $results->fetch_assoc();
+            $this->id = $record['id'];
+            $this->title = $record['title'];
+            $this->image_url = $record['image'];
+            $this->description = $record['description'];
+            return true;
         }
 
-        $statement->close();
-
-        return true;
+        return false;
     }
 }
 
