@@ -51,6 +51,14 @@
         <img class="location_image" src="{$location_object->image_url}">
         <p>{$location_object->description}</p>
 
+        <p>
+            <ul>
+                {foreach $location_object->choices as $choice}
+                    <li><a href="index.php?location_id={$choice->to_location_id}">{$choice->title}</a></li>
+                {/foreach}
+            </ul>
+        </p>
+
     </div>
 
 </body>
