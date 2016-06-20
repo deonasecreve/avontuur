@@ -6,8 +6,6 @@
 </head>
 <body>
     <h1>_layout.tpl {$location_object->x}, {$location_object->y}</h1>
-    <p>{$message}</p>
-
 
     <div class="sidebar">
         <h2>Menu</h2>
@@ -36,6 +34,19 @@
     </div>
 
     <div class="content">
+        <!-- show errors -->
+
+            {if isset($errors) }
+            <p style="border: 1px solid red;">
+                <ul>
+                    {foreach $errors as $error}
+                        <li>{$error}</li>
+                    {/foreach}
+                </ul>
+            </p>
+            {/if}
+
+
         <h1>{$location_object->title}</h1>
         <img class="location_image" src="{$location_object->image_url}">
         <p>{$location_object->description}</p>

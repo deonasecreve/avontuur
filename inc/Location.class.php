@@ -21,14 +21,16 @@ class Location {
      * true = loading worked
      * false = loading failed
     */
-    function LoadFromDb($mysqli, $x, $y) {
+    function LoadFromDb($mysqli, $id) {
 
-        $sql = "SELECT * FROM locations WHERE x=" . $x . " AND y=" . $y . ";";
+        $sql = "SELECT * FROM locations WHERE id=" . $id . ";";
         $results = $mysqli->query($sql);
 
         if ( $results->num_rows == 1) {
             $record = $results->fetch_assoc();
             $this->id = $record['id'];
+            $this->x = $record['x'];
+            $this->y = $record['y'];
             $this->title = $record['title'];
             $this->image_url = $record['image'];
             $this->description = $record['description'];
