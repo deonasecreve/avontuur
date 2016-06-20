@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    width:432px;
+}
+
+.cell {
+    float:left;
+    border:1px solid black;
+    width:24px;
+    height:24px;
+}
+
+.active {
+    background-color: pink;
+}
