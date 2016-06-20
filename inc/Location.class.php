@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Choice.class.php';
+
 class Location {
     public $id;
     public $x;
@@ -10,6 +12,8 @@ class Location {
 
     public $tile_filename;
     public $cleared;
+
+    public $choices = [];
 
     /*
      * Parameters:
@@ -34,6 +38,17 @@ class Location {
             $this->title = $record['title'];
             $this->image_url = $record['image'];
             $this->description = $record['description'];
+
+            // now load choices for this location
+            //$sql = "SELECT * FROM choices WHERE from_location_id=" . $this->id . ";";
+            //$results2 = $mysqli->query($sql);
+
+            // while ($row = $results2->fetch_assoc() {
+            // $new_choice = new Choice();
+            // $new_choice->title = row['title'];
+            // array_push($this->choices, $new_choice);
+            // }
+
             return true;
         }
 

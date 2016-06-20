@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 16 jun 2016 om 08:29
+-- Gegenereerd op: 20 jun 2016 om 07:47
 -- Serverversie: 5.7.11
 -- PHP-versie: 5.5.32
 
@@ -23,34 +23,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `locations`
+-- Tabelstructuur voor tabel `choices`
 --
 
-CREATE TABLE `locations` (
+CREATE TABLE `choices` (
   `id` int(11) NOT NULL,
-  `x` int(11) NOT NULL,
-  `y` int(11) NOT NULL,
+  `from_location_id` int(11) NOT NULL,
+  `to_location_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `mod_health` int(11) NOT NULL
+  `needs_item_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `locations`
+-- Tabel leegmaken voor invoegen `choices`
 --
 
-INSERT INTO `locations` (`id`, `x`, `y`, `title`, `image`, `description`, `mod_health`) VALUES
-(1, 1, 1, 'Welcome to Sryth', 'http://vignette2.wikia.nocookie.net/sryth/images/b/b4/Tysa4.png/revision/latest?cb=20110718075118', 'Your adventures are about to begin...\r\n\r\nYour adventures in Sryth begin with you as the lone passenger on a coach bound for the village of Hawklor, a small settlement tucked into the Hart Hills region of Southwest Tysa.\r\n\r\nTo view Hawklor on the map of Tysa, click here. The map will launch in a new window. You\'ll find Hawklor (in yellow) in the lower left portion of the map, in the Hart Hills.\r\n\r\nYou\'ve never before been to this part of the Kingdom, but an insatiable thirst for adventure has at last drawn you out of the quiet existence you\'ve long known and into the wider (albeit more perilous) world.\r\n\r\nIntroductory Hint: Clicking the link below will take you to the next game section. You will often have multiple links at the end of a game section from which to choose your next course of action.\r\n\r\nPlease continue...', 0);
+TRUNCATE TABLE `choices`;
+--
+-- Gegevens worden geëxporteerd voor tabel `choices`
+--
+
+INSERT INTO `choices` (`id`, `from_location_id`, `to_location_id`, `title`, `needs_item_id`) VALUES
+(1, 1, 2, 'Ga naar het noorden', NULL),
+(2, 1, 3, 'Ga naar het zuiden', NULL);
 
 --
 -- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexen voor tabel `locations`
+-- Indexen voor tabel `choices`
 --
-ALTER TABLE `locations`
+ALTER TABLE `choices`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -58,10 +62,10 @@ ALTER TABLE `locations`
 --
 
 --
--- AUTO_INCREMENT voor een tabel `locations`
+-- AUTO_INCREMENT voor een tabel `choices`
 --
-ALTER TABLE `locations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `choices`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
